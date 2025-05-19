@@ -1,12 +1,14 @@
 name: client-tests-workflow
 
-on: pull_request
+on: 
+  pull_request:
+    branches: 
+      client-test-workflow
 
 jobs:
   test-client:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
       - name: Goto client and run tests
         uses: cd client && npm i && npm run test
